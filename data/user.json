@@ -1,0 +1,14 @@
+[
+ {
+    "email": "user@nutech-integrasi.com",
+    "first_name": "User",
+    "last_name": "Nutech",
+    "password": "abcdef1234"
+  },
+  {
+    "email": "david@gmail.com",
+    "first_name": "david",
+    "last_name": "apriansyah",
+    "password": "david12345"
+  }
+]
