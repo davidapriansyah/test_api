@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Balance.belongsTo(models.User, {
-        foreignKey:"UserId"
+        foreignKey:"userId"
       })
     }
   }
   Balance.init({
-    UserId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     balance: DataTypes.INTEGER
   }, {
     sequelize,

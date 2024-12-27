@@ -41,6 +41,7 @@ class InformationController{
             message: "Sukses",
             data: service
         })
+        
         } catch (error) {
             next(error)
         }

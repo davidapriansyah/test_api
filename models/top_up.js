@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Top_up.belongsTo(models.User, {
-        foreignKey: "UserId"
+        foreignKey: "userId"
       })
     }
   }
   Top_up.init({
-    UserId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     top_up_amount: DataTypes.INTEGER
   }, {
     sequelize,

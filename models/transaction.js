@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Transaction.belongsTo(models.User, {
-        foreignKey: "UserId"
+        foreignKey: "userId"
       })
     }
   }
   Transaction.init({
-    UserId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     invoice_number: DataTypes.STRING,
     service_code: DataTypes.STRING,
     service_name: DataTypes.STRING,

@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Balance, {foreignKey: "UserId"})
-      User.hasMany(models.Top_up, {foreignKey: "UserId"})
-      User.hasMany(models.Transaction, {foreignKey: "UserId"})
+      User.hasOne(models.Balance, {foreignKey: "userId"})
+      User.hasMany(models.Top_up, {foreignKey: "userId"})
+      User.hasMany(models.Transaction, {foreignKey: "userId"})
 
     }
   }
