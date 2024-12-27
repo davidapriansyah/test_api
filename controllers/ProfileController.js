@@ -1,4 +1,5 @@
 const {User} = require("../models/index.js")
+const cloudinary = require("../helpers/cloudinary.js")
 class ProfileController{
     static async getProfile(req, res, next) {
         try {
@@ -60,9 +61,40 @@ class ProfileController{
 
     static async profileUpdateImage(req, res, next) {
         try {
-            
+            const {userId} = req.loginInfo
+
+            let user = await User.findByPk(userId)
+
+            if(!user) {
+                throw {name: "NotFound"}
+            }
+
+            if (!req.file) {
+                throw {name: "errorUpload"}
+            }
+
+            const imageInBase64 = req.file.buffer.toString("base64");
+            const data64 = `data:${req.file.mimetype};base64,${imageInBase64}`;
+
+            const upload = await cloudinary.uploader.upload(data64, {
+            public_id: `user_${userId}__profile`,
+            tags: ["profile"],
+            });
+
+            await user.update({ profile_image: upload.secure_url });
+
+            res.status(200).json({
+                status: 0,
+                message: "Update Profile Image berhasil",
+                data: {
+                    email: user.email,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    profile_image: upload.secure_url,
+                },
+            });
         } catch (error) {
-            
+          next(error)
         }
     }
 

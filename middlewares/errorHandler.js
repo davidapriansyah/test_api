@@ -38,6 +38,13 @@ const errorHandler = (err, req, res, next) => {
         status = 404
         message = 'Data tidak ada'
     }
+
+    if (err.name == 'errorUpload') {
+        httpStatus = 400
+        status = 102
+        message = 'Format Image Tidak Sesuai'
+    }
+    
     
 
     res.status(httpStatus).json({
