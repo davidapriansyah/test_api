@@ -3,12 +3,14 @@
     "email": "user@nutech-integrasi.com",
     "first_name": "User",
     "last_name": "Nutech",
-    "password": "abcdef1234"
+    "password": "abcdef1234",
+    "profile_image":"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
   },
   {
     "email": "david@gmail.com",
     "first_name": "david",
     "last_name": "apriansyah",
-    "password": "david12345"
+    "password": "david12345",
+    "profile_image":"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
   }
 ]
