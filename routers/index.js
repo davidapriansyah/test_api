@@ -10,11 +10,11 @@ const transactionRoute = require("./transaction.js")
 
 router.post("/registration", AuthController.register)
 router.post("/login", AuthController.login)
+router.get("/banner", InformationController.getBanner)
 router.use(authentication)
+router.get("/services", InformationController.getService)
 router.use("/profile", profileRoute)
 router.use("/transaction", transactionRoute)
-router.get("/banner", InformationController.getBanner)
-router.get("/services", InformationController.getService)
 router.get("/balance", TransactionController.getBalance)
 router.post("/topup", TransactionController.topUp)
 
