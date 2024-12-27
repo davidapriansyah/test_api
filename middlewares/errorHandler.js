@@ -15,6 +15,18 @@ const errorHandler = (err, req, res, next) => {
         message = err.errors[0].message
     }
 
+    if (err.name == 'BadRequest') {
+        httpStatus = 400
+        status = 102
+        message = 'Paramter email tidak sesuai format'
+    }
+
+    if (err.name == 'LoginError') {
+        httpStatus = 401
+        status = 103
+        message = 'username atau password salah'
+    }
+
     res.status(httpStatus).json({
         status,
         message,

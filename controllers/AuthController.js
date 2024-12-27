@@ -1,3 +1,5 @@
+const { compare } = require("../helpers/bcrypt.js")
+const { signToken } = require("../helpers/jwt.js")
 const {User} = require("../models/index.js")
 
 class AuthController {
@@ -14,16 +16,45 @@ class AuthController {
                 data: null
             })
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }
 
     static async login(req, res, next) {
         try {
+            const {email, password} = req.body
+
+            if(!email || !password) {
+                throw {name : "BadRequest"}
+            }
+
+            const user = await User.findOne({
+                where:{
+                    email
+                }
+            })
+
+            if(!user) {
+                throw {name: "LoginError"}
+            }
+
+            if(!compare(password,user.password)) {
+                throw {name: "LoginError"}
+            }
             
+            const payload = {
+                id: user.id,
+                email: user.email
+            }
+
+            const token = signToken(payload)
+            res.status(200).json({
+                status:0,
+                message: "Login Sukses",
+                data: {token : token}
+            })
         } catch (error) {
-            
+            next(error)
         }
     }
 }
