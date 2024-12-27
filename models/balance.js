@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Balance.belongsTo(models.User, {
+        foreignKey:"UserId"
+      })
     }
   }
   Balance.init({

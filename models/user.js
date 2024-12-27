@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
   });
   User.beforeCreate((user) => {
-    user.password = hash(password)
+    user.password = hash(user.password)
     user.profile_image = "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
   })
   return User;
