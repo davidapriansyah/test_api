@@ -18,16 +18,43 @@ class ProfileController{
                 data: user,
             });
         } catch (error) {
-            console.log(error)
             next(error);
         }
     }
 
     static async profileUpdate(req, res, next) {
-        try {
-            
+        try {            
+            const {userId} = req.loginInfo            
+            const {first_name, last_name} = req.body
+
+            if(!userId) {
+                throw {name: "Unauthorized"}
+            }
+
+            const user = await User.findByPk(userId)
+
+            if(!user) {
+                throw {name: "NotFound"}
+            }
+
+            user.first_name = first_name
+            user.last_name = last_name
+            await user.save()
+
+            res.status(200).json({
+                status: 0,
+                message: "Update Profile berhasil",
+                data: {
+                    email: user.email,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    profile_image: user.profile_image
+                }
+            })
+
+
         } catch (error) {
-            
+            next(error)
         }
     }
 
