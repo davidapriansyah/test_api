@@ -27,6 +27,19 @@ const errorHandler = (err, req, res, next) => {
         message = 'username atau password salah'
     }
 
+    if (err.name == 'Unauthorized') {
+        httpStatus = 401
+        status = 108
+        message = 'Token tidak tidak valid atau kadaluwarsa'
+    }
+
+    if (err.name == 'NotFound') {
+        httpStatus = 404
+        status = 404
+        message = 'Data tidak ada'
+    }
+    
+
     res.status(httpStatus).json({
         status,
         message,

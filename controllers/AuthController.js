@@ -44,7 +44,10 @@ class AuthController {
             
             const payload = {
                 id: user.id,
-                email: user.email
+                email: user.email,
+                first_name: user.first_name,
+                last_name : user.last_name,
+                profile_image: user.profile_image
             }
 
             const token = signToken(payload)
