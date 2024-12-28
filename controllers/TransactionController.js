@@ -13,11 +13,6 @@
                 attributes: ["balance"]
             });
 
-
-            if(!balance) {
-                throw {name: "NotFound"}
-            }
-
             res.status(200).json({
                 status: 0,
                 message: "Get Balance berhasil",
@@ -31,67 +26,79 @@
 
     static async topUp(req, res, next) {
         try {
-            const {userId} = req.loginInfo
-            let {top_up_amount} = req.body
-
+            const { userId } = req.loginInfo;
+            let { top_up_amount } = req.body;
+    
+            // Konversi top_up_amount ke angka
             top_up_amount = Number(top_up_amount);
-
-
-            if(!userId) {
-                throw {name: "Unauthorized"}
+    
+            if (!userId) {
+                throw { name: "Unauthorized" };
             }
-
-            if(isNaN(top_up_amount) || top_up_amount <= 0) {
-                throw {name: "BadRequestTopUp"}
+    
+            if (isNaN(top_up_amount) || top_up_amount <= 0) {
+                throw { name: "BadRequestTopUp" };
             }
-
+    
+            // Cek apakah saldo pengguna ada
             let balance = await Balance.findOne({
-                where: {userId}
-            })
-
-            if(!balance) {
+                where: { userId },
+            });
+    
+            // Jika tidak ada saldo, buat saldo baru
+            if (!balance) {
                 balance = await Balance.create({
-                    where: {userId, balance:0}
-                })
+                    userId,
+                    balance: 0,
+                });
             }
-
-            balance.balance += top_up_amount
-            await balance.save()
-
+    
+            // Tambahkan top-up ke saldo
+            balance.balance += top_up_amount;
+            await balance.save();
+    
+            // Format tanggal untuk invoice
             const date = new Date();
-            const formattedDate = `${date.getFullYear()}${(date.getMonth() + 1).toString()
-            .padStart(2, "0")}${date.getDate().toString().padStart(2, "0")}`;
+            const formattedDate = `${date.getFullYear()}${(date.getMonth() + 1)
+                .toString()
+                .padStart(2, "0")}${date.getDate().toString().padStart(2, "0")}`;
+    
+            // Ambil transaksi terakhir untuk menentukan nomor invoice
             const lastTransaction = await Transaction.findOne({
-            where: { transaction_type: "TOPUP" },
-            order: [["createdAt", "DESC"]],
+                where: { transaction_type: "TOPUP" },
+                order: [["createdAt", "DESC"]],
             });
-
+    
             const lastInvoiceNumber = lastTransaction
-            ? parseInt(lastTransaction.invoice_number.split("-")[1], 10)
-            : 0;
+                ? parseInt(lastTransaction.invoice_number.split("-")[1], 10)
+                : 0;
+    
             const newInvoiceNumber = `INV${formattedDate}-${String(lastInvoiceNumber + 1).padStart(3, "0")}`;
-
+    
+            // Buat transaksi top-up
             await Transaction.create({
-            userId,
-            invoice_number: newInvoiceNumber,
-            transaction_type: "TOPUP",
-            description: "Top Up balance",
-            total_amount: top_up_amount,
-            created_on : new Date()
+                userId,
+                invoice_number: newInvoiceNumber,
+                transaction_type: "TOPUP",
+                description: "Top Up balance",
+                total_amount: top_up_amount,
+                created_on: new Date(),
             });
-
+    
+            // Kirim respons berhasil
             res.status(200).json({
                 status: 0,
                 message: "Top Up Balance berhasil",
                 data: {
-                  balance: balance.balance,
+                    balance: balance.balance,
                 },
             });
-
         } catch (error) {
-            next(error)
+            console.log(error);
+            next(error);
         }
     }
+    
 
     static async transactionPost(req, res, next) {
         try {

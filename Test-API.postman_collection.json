@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "c5817f35-083e-441f-9df3-045659045dce",
+		"name": "Test-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27283667",
+		"_collection_link": "https://red-trinity-637477.postman.co/workspace/Team-Workspace~5b1ac4f8-5683-4e0f-88c6-3e51b7319043/collection/27283667-c5817f35-083e-441f-9df3-045659045dce?action=share&source=collection_link&creator=27283667"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "rendi",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "setiawan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/registration",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "rendi",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "setiawan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/registration",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "rendi",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "setiawan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile/image",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get banner",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/banner",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get service",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/services",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get balance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/balance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction History",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/balance",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJkYXZpZEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoiZGF2aWQiLCJsYXN0X25hbWUiOiJhcHJpYW5zeWFoIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTM3NjEwNX0.NClm9q6z2jNDeOHNxcN0sEMrZc9WAcS_XeHHquKldFQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "service_code",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/transaction",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "top up",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJrZW1hbEBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoia2VtYWwiLCJsYXN0X25hbWUiOiJ1ZGluIiwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vaW1nLmZyZWVwaWsuY29tL2ZyZWUtdmVjdG9yL2JsdWUtY2lyY2xlLXdpdGgtd2hpdGUtdXNlcl83ODM3MC00NzA3LmpwZyIsImlhdCI6MTczNTMxNDI3OH0.GF-Msjh8r9GWoAUC2RFPQi1XeADOeUNN9ee9jRNDn08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rendi@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "first_name",
+							"value": "kemal update",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "udin update",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "rendi",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/topup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"topup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
