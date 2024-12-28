@@ -44,13 +44,24 @@ const errorHandler = (err, req, res, next) => {
         status = 102
         message = 'Format Image Tidak Sesuai'
     }
-    
-    
 
+    if (err.name == 'BadRequestTopUp') {
+        httpStatus = 400
+        status = 102
+        message = 'Paramter amount hanya boleh angka dan tidak boleh lebih kecil dari 0'
+    }
+
+    if (err.name == 'NotFoundService') {
+        httpStatus = 400
+        status = 102
+        message = 'Service ataus Layanan tidak ditemukan'
+    }
+    
     res.status(httpStatus).json({
         status,
         message,
         data: null
     })
 }
+
 module.exports= errorHandler

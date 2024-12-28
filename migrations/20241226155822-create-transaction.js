@@ -20,17 +20,14 @@ module.exports = {
       invoice_number: {
         type: Sequelize.STRING
       },
-      service_code: {
-        type: Sequelize.STRING
-      },
-      service_name: {
-        type: Sequelize.STRING
-      },
       transaction_type: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.STRING
+      },
       total_amount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       created_on: {
         type: Sequelize.DATE

@@ -19,10 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   Transaction.init({
     userId: DataTypes.INTEGER,
     invoice_number: DataTypes.STRING,
-    service_code: DataTypes.STRING,
-    service_name: DataTypes.STRING,
     transaction_type: DataTypes.STRING,
-    total_amount: DataTypes.INTEGER,
+    description: DataTypes.STRING,
+    total_amount: DataTypes.STRING,
     created_on: DataTypes.DATE
   }, {
     sequelize,
